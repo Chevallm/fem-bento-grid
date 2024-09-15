@@ -1,0 +1,122 @@
+@use "sass:map";
+
+$colors: (
+    "purple100": hsl(254, 88%, 90%),
+    "purple500": hsl(256, 67%, 59%),
+    "yellow100": hsl(31, 66%, 93%),
+    "yellow500": hsl(39, 100%, 71%),
+    "white": hsl(0, 0%, 100%),
+    "black": hsl(0, 0%, 7%),
+    "background": hsl(60 16% 95%)
+);
+
+@function get-color($key) {
+    @return map-get($map: $colors, $key: $key);
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-MediumItalic.ttf') format('ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    src: url('DMSans-Medium.ttf') format('ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+$font-family: 'DM Sans', sans-serif;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-size-title: 50px;
+$font-size-header: 26px;
+$font-size-body: 18px;
+
+body {
+    background-color: get-color("background");
+}
+
+.grid {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+    font-family: $font-family;
+    font-size: $font-size-body;
+    font-weight: $font-weight-regular;
+}
+
+.cell {
+    border-radius: 8px;
+    color: get-color("black");
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;;
+    padding: 0.5em;
+
+    &.social-media-with-ai {
+        background-color: get-color("purple500");
+        word-wrap: normal;
+    }
+    &.social-media-links {
+
+    }
+    &.schedule {
+        background-color: get-color("yellow500");
+    }
+    &.schedule-to-social-media {
+        background-color: get-color("purple100");
+    }
+    &.grow-follower {
+        background-color: get-color("purple500");
+    }
+    &.faster-audience-growth {
+
+    }
+    &.create-post-quicker {
+        background-color: get-color("yellow100");
+    }
+    &.write-content-with-ai {
+        background-color: get-color("yellow500");
+    }
+}
+
+.text- {
+
+    &title {
+        font-size: $font-size-title;
+    }
+    &header {
+        font-size: $font-size-header;
+    }
+
+    &center {
+        text-align: center;
+    }
+
+    &medium {
+        font-weight: $font-weight-medium;
+    }
+
+    &italic {
+        font-style: italic;
+    }
+
+    &yellow {
+        color: get-color("yellow500")
+    }
+
+    &white {
+        color: get-color("white")
+    }
+}
+
